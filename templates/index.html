@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>URL Shortener</title>
+    <title>Snip — URL Shortener</title>
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <h1>URL Shortener</h1>
+    <div class="bg-grid"></div>
 
-    <form method="POST">
-        <input type="text" name="url" placeholder="Enter URL">
-        <button type="submit">Shorten</button>
-    </form>
+    <div class="container">
+        <div class="brand">
+            <span class="brand-icon">⌗</span>
+            <span class="brand-name">snip</span>
+        </div>
 
-    {% if short_url %}
-        <p>Short URL:</p>
-        <a href="{{ short_url }}">{{ short_url }}</a>
-    {% endif %}
+        <h1>Make long links<br><em>disappear.</em></h1>
+
+        <form method="POST" class="form">
+            <div class="input-wrap">
+                <span class="input-icon">↗</span>
+                <input type="text" name="url" placeholder="Paste your long URL here…" autocomplete="off" spellcheck="false">
+            </div>
+            <button type="submit">Shorten</button>
+        </form>
+
+        {% if short_url %}
+            <div class="result">
+                <p class="result-label">Your short link</p>
+                <a href="{{ short_url }}" class="result-link">{{ short_url }}</a>
+                <button class="copy-btn" onclick="navigator.clipboard.writeText('{{ short_url }}'); this.textContent='Copied!'">Copy</button>
+            </div>
+        {% endif %}
+
+        <p class="footer-note">Free · No sign-up · Instant</p>
+    </div>
 
 </body>
 </html>
