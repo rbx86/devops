@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 import random
 import string
 
+# this is a comment
 app = Flask(__name__)
 
 url_map = {}
