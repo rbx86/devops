@@ -1,0 +1,7 @@
+nano templates/index.html
+
+change code
+
+git add .
+git commit -m "test"
+git push -u origin main
